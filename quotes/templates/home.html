@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InspireHub</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="hero">
+
+    <div class="overlay">
+
+        <div class="quote-box">
+
+            {% if random_quote %}
+                <h1 class="quote-text">
+                    "{{ random_quote.text }}"
+                </h1>
+
+                <p class="author">
+                    By {{ random_quote.author }}
+                </p>
+            {% endif %}
+
+            <div class="button-group">
+
+                <a href="/" class="btn">
+                    Generate New Quote
+                </a>
+
+                <a href="{% url 'add' %}" class="btn secondary">
+                    Add Quote
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="table-section">
+
+    <h2>All Quotes</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quote</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for quote in quotes %}
+
+            <tr>
+                <td>{{ quote.id }}</td>
+                <td>{{ quote.text }}</td>
+                <td>{{ quote.author }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</section>
+
+</body>
+</html>

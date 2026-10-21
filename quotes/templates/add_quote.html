@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Quote</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h1>Add New Quote</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <textarea
+                name="text"
+                rows="5"
+                placeholder="Enter quote"
+                required></textarea>
+
+            <input
+                type="text"
+                name="author"
+                placeholder="Author name"
+                required>
+
+            <button type="submit">
+                Save Quote
+            </button>
+
+        </form>
+
+        <a href="/" class="back-btn">
+            Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
