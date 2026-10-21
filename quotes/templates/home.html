@@ -2,80 +2,103 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InspireHub</title>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<meta charset="UTF-8">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>InspireHub</title>
+
+<link rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
 </head>
+
 <body>
 
 <section class="hero">
 
-    <div class="overlay">
+<div class="overlay">
 
-        <div class="quote-box">
+<div class="quote-box">
 
-            {% if random_quote %}
-                <h1 class="quote-text">
-                    "{{ random_quote.text }}"
-                </h1>
+{% if random_quote %}
 
-                <p class="author">
-                    By {{ random_quote.author }}
-                </p>
-            {% endif %}
+<h1 class="quote-text">
 
-            <div class="button-group">
+"{{ random_quote.text }}"
 
-                <a href="/" class="btn">
-                    Generate New Quote
-                </a>
+</h1>
 
-                <a href="{% url 'add' %}" class="btn secondary">
-                    Add Quote
-                </a>
+<p class="author">
 
-            </div>
+By {{ random_quote.author }}
 
-        </div>
+</p>
 
-    </div>
+{% endif %}
+
+<div class="button-group">
+
+<a href="/" class="btn">
+Generate New Quote
+</a>
+
+<a href="{% url 'add' %}"
+class="btn secondary">
+Add Quote
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <section class="table-section">
 
-    <h2>All Quotes</h2>
+<h2>All Quotes</h2>
 
-    <table>
+<table>
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Quote</th>
-                <th>Author</th>
-            </tr>
-        </thead>
+<thead>
 
-        <tbody>
+<tr>
 
-            {% for quote in quotes %}
+<th>ID</th>
 
-            <tr>
-                <td>{{ quote.id }}</td>
-                <td>{{ quote.text }}</td>
-                <td>{{ quote.author }}</td>
-            </tr>
+<th>Quote</th>
 
-            {% endfor %}
+<th>Author</th>
 
-        </tbody>
+</tr>
 
-    </table>
+</thead>
+
+<tbody>
+
+{% for quote in quotes %}
+
+<tr>
+
+<td>{{ quote.id }}</td>
+
+<td>{{ quote.text }}</td>
+
+<td>{{ quote.author }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
 
 </section>
 
